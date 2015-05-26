@@ -1,0 +1,81 @@
+							lodash中常用方法总结
+1、选出给定区间中所有的偶数
+	var array = [1, 2, 3, 4];
+	var evens = _.remove(array, function(n) {
+ 	 return n % 2 == 0;
+	});
+2、弹出集合最后一个元素
+	return _.last(array);
+3、弹出两个集合的交集
+	return _.intersection(collection_b,collection_a);
+4、弹出两个集合的并集
+	return _.union(collection_a, collection_b);
+5、应该从collection中选出不重复的数字	
+	return _.uniq(collection);
+6、选出A集合中与B集合中的不共有元素
+	return _.xor(collection_a, collection_b);
+7、把二维数组变成一维数组
+	return _.flatten(collection);
+8、'消除重复,按照第一次出现的顺序排列最后的输出结果
+	var tem = _.flattenDeep(collection);（将多重数组变成一维数组）
+  	return _.uniq(tem);
+9、将集合A中得元素映射成集合B中的元素
+	function double(element){
+ 	 var  result = element * 2;
+  	return result;
+	}
+
+	collection_b = _.map(collection_a, double);
+	var collection_a = [1,2,3,4,5];  2倍之后映射到B var collection_b = [2,4,6,8,10];
+10、从大到小排序
+	function array_sort(collection){
+    	 return collection.sort(function(a,b){
+         return a-b;
+     	});
+  	 }
+
+	return collection.sort(array_sort);
+11、从小到大排序
+  function array_sort(collection){
+     return collection.sort(function(a,b){
+       return b-a;
+    });
+   }
+
+	return collection.sort(array_sort);
+	
+12、选出给定数字集合元素的最大值
+	return _.max(collection);
+13、选出给定数字集合元素的最小值
+	return _.min(collection);
+14、判断两个集合是否相同
+  var flag = _.difference(collection_a, collection_b);
+  if (flag.length === 0) {
+      return true;
+  }else {
+    return false;
+  }
+15、计算给定数字集合元素的平均值'
+	var result = _.sum(collection);（求和）
+       return result/collection.length;
+16、计算给定集合元素的总和
+	return _.sum(collection);
+17、找出某元素在给定集合中的第一个下标
+	return _.indexOf(collection, element);
+18、找出某元素在给定集合中的最后一个下标
+	return _.lastIndexOf(collection, element);
+19、找出给定集合元素的第一个偶数
+    var index = _.findIndex(collection, function(chr) {
+    if(chr %2 === 0){
+      return chr;
+    }
+  });
+  return collection[index];
+20、找出给定集合元素的最后一个偶数
+	  var index = _.findLastIndex(collection, function(chr) {
+    if(chr %2 === 0){
+      return chr;
+    }
+  });
+  return collection[index];
+	}
